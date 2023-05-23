@@ -1,0 +1,117 @@
+@import "../nib/index.styl"
+
+tr(t, tp = all)
+	transition tp (t)s ease
+
+bg(urls, positionr = 'center center', psr = 'no-repeat')
+	background-image url(imgs+urls) 
+	if positionr == 'c'
+		background-position center center
+	else if positionr == 'center center'
+		background-position center center	
+	else if positionr == 'lt'
+		background-position left top
+	else if positionr == 'ct'
+		background-position center top
+	else if positionr == 'rt'
+		background-position right top
+	else if positionr == 'lc'
+		background-position left center
+	else if positionr == 'rc'
+		background-position right center
+	else if positionr == 'cc'
+		background-position center center
+	else if positionr == 'lb'
+		background-position left bottom
+	else if positionr == 'rb'
+		background-position right bottom
+	else if positionr == 'cb'
+		background-position center bottom
+	else if positionr == 'cover'
+		background-size cover
+	else if positionr == 'ccc'
+		background-size cover
+		background-position center center
+	else if positionr == 'contain'
+		background-size contain
+	else if positionr != "center center" 
+		background-position positionr
+	if psr == "r"
+		background-repeat repeat
+	else if psr == 'x'
+		background-repeat repeat-x
+	else if psr == 'y'
+		background-repeat repeat-y
+	else if psr == 'no-repeat'
+		background-repeat no-repeat
+
+bgimg()
+	object-fit cover
+	object-position center
+	absolute left 0 top 0
+	width 100%
+	height 100%
+	display block
+
+corner()
+	width: 100%;
+	padding-bottom 1.244%
+	background-image: url('~/static/webp/corder-bottom.webp');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	position: absolute;
+	left: 0;
+	display: block;
+	content: '';
+	top: 0;
+
+placeholder(color)
+	&::-webkit-input-placeholder
+		color color
+		
+	&::-moz-placeholder
+		color color
+		
+	&:-moz-placeholder
+		color color
+
+py(pd)
+	padding-top pd
+	padding-bottom pd
+
+px(pd)
+	padding-left pd
+	padding-right pd
+
+p(pd)
+	padding pd
+
+mx(md)
+	margin-left md
+	margin-right md
+
+my(md)
+	margin-top md
+	margin-bottom md
+
+m(md)
+	margin md
+
+font-url(file)
+	return '@/static/fonts/' + file
+
+webfont(family, file, weight = normal, style = normal)
+	@font-face
+		font-family family
+		font-display swap
+		src url(font-url(file + '.woff2')) format('woff2'), url(font-url(file + '.woff')) format('woff');
+		font-weight weight
+		font-style style
+
+wrap(width = 1720px)
+	margin-left auto
+	margin-right auto
+	padding-left var(--wp)
+	padding-right var(--wp)
+	max-width width
+	width 100%
